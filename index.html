@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+<body class="sb-nav-fixed">
+    <form>
+        Nama Depan<br />
+        <input type="text" id="nama" name="nama_depan" /><br />
+        Nama Belakang<br />
+        <input type="text" id="cek" name="nama_belakang" disabled='disabled'  /><br />
+        Email<br />
+        <input type="email" id="ad" name="email" disabled="disabled" /><br />     
+        <input type="submit" id="add_data" value="ADD Data" disabled="disabled" />
+    </form>    
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+<script>
+    (function() {
+        $('form > input#nama').keyup(function() {
+            var empty = false;
+            $('form > input#nama').each(function() {
+                if ($(this).val() == '') {
+                    empty = true;
+                }
+            });
+    
+            if (empty) {
+                $('#add_data').attr('disabled', 'disabled');
+                $('#cek').attr('disabled', 'disabled');
+                $('#ad').attr('disabled', 'disabled');
+            } else {
+                $('#add_data').removeAttr('disabled');
+                $('#cek').removeAttr('disabled');
+                $('#ad').removeAttr('disabled');
+            }
+        });
+    })()
+    </script>
+</html>
